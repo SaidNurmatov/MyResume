@@ -8,11 +8,14 @@ RUN apt-get update && \
 # Pip'i güncelle
 RUN pip install --upgrade pip
 
+#set env vareables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV VIRRUAL_ENV=/opt/venv
 # Virtualenv kur ve sanal ortam oluştur
-RUN pip install virtualenv && python -m virtualenv /opt/venv
+RUN pip install virtualenv && python -m virtualenv $VIRRUAL_ENV
 
 # Sanal ortamı aktif et
-ENV PATH="/opt/venv/bin:$PATH"
+ENV PATH="$VIRRUAL_ENV/bin:$PATH"
 
 # Gereksinimleri yüklemek için requirements.txt dosyasını ekle
 ADD ./requirements.txt /tmp/requirements.txt
