@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     env_file:
-      - MyResume/docker.env
+      - myresume/docker.env
     volumes:
       - .:/srv/app
     ports:

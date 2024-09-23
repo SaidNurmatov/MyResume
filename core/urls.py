@@ -1,8 +1,9 @@
 from django.urls import  path
 
-from MyResume.urls import urlpatterns
+from myresume.urls import urlpatterns
 from .views import index
 
-urlpatterns=[
+urlpatterns = [
     path('', index, name='index'),
+    path('<slug>/', redirect_urls, name='redirect_urls'),
 ]
